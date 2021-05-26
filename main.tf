@@ -17,6 +17,6 @@ resource "aws_instance" "web" {
     instance_type = "t2.micro"
 }
 
-resource "aws_resource_type" "name" {
+# resource "aws_resource_type" "name" {
     #here we place the config options
-}
+# }
