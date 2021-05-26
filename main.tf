@@ -13,6 +13,7 @@ provider "aws" {
 
 }
 
+# Spinning up an EC2 instance:
 # resource "aws_instance" "first-server" {
 #     ami = " ami-0b9064170e32bde34"
 #     instance_type = "t2.micro"
