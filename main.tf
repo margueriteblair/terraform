@@ -9,14 +9,21 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
+
 }
 
-resource "aws_instance" "web" {
-    ami = "${data.aws_ami.ubuntu.id}"
-    instance_type = "t2.micro"
-}
-
-# resource "aws_resource_type" "name" {
-    #here we place the config options
+# resource "aws_instance" "first-server" {
+#     ami = " ami-0b9064170e32bde34"
+#     instance_type = "t2.micro"
+#     tags = {
+#       Name = "ubuntu"
+#     }
 # }
+
+resource "aws_vpc" "first-vpc" {
+  cidr_block = "10.0.0.6/16"
+  tags = {
+    Name = "production"
+  }
+}
