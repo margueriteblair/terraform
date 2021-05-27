@@ -10,8 +10,7 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-2"
-  access_key = "AKIA6NEN4OJOG6JQUVOH"
-  secret_key = "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"
+
 }
 
 # Spinning up an EC2 instance:
@@ -24,7 +23,7 @@ provider "aws" {
 # }
 
 resource "aws_vpc" "first-vpc" {
-  cidr_block = "10.0.0.6/16"
+  cidr_block = "10.0.0.0/16"
   tags = {
     Name = "production"
   }
