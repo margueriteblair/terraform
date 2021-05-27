@@ -22,15 +22,6 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.prod-vpc.id
 }
 
-# Spinning up an EC2 instance:
-# resource "aws_instance" "first-server" {
-#     ami = " ami-0b9064170e32bde34"
-#     instance_type = "t2.micro"
-#     tags = {
-#       Name = "ubuntu"
-#     }
-# }
-
 resource "aws_route_table" "prod-rt" {
   vpc_id = aws_vpc.prod-vpc.id
 
