@@ -121,4 +121,10 @@ resource "aws_eip" "one" {
   depends_on = aws_internet_gateway.gw
 }
 
+resource "aws_instance" "web-server-instance" {
+  ami = "ami-0b9064170e32bde34"
+  instance_type = "t2.micro"
+  availability_zone = "us-east-2a"
+}
+
 #last step now is to actually create the ubuntu server
