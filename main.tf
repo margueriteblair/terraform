@@ -113,3 +113,9 @@ resource "aws_network_interface" "web-server-nic" {
     device_index = 1
   }
 }
+
+resource "aws_eip" "one" {
+  vpc = true
+  network_interface = "#"
+  associate_with_private_ip = "10.0.0.10"
+}
