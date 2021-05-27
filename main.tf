@@ -10,7 +10,8 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-2"
-
+  access_key = "AKIA6NEN4OJOG6JQUVOH"
+  secret_key = "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"
 }
 
 # Spinning up an EC2 instance:
@@ -33,6 +34,6 @@ resource "aws_subnet" "subnet-1" {
   vpc_id = aws_vpc.first-vpc.id
   cidr_block = "10.0.1.0/24"
   tags = {
-    Name = "prod-subnet
+    Name = "prod-subnet"
   }
 }
