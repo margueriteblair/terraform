@@ -116,6 +116,6 @@ resource "aws_network_interface" "web-server-nic" {
 
 resource "aws_eip" "one" {
   vpc = true
-  network_interface = "#"
-  associate_with_private_ip = "10.0.0.10"
+  network_interface = aws_network_interface.web-server-nic.id
+  associate_with_private_ip = "10.0.1.50"
 }
