@@ -53,7 +53,7 @@ resource "aws_subnet" "subnet-1" {
 #route tables association with the subnet
 resource "aws_route_table_association" "a" {
   subnet_id = aws_subnet.subnet-1.id
-  router_table_id = aws_route_table.prod-rt.id
+  route_table_id = aws_route_table.prod-rt.id
 }
 
 #now create a security group
@@ -108,10 +108,6 @@ resource "aws_network_interface" "web-server-nic" {
   private_ips     = ["10.0.1.50"] #we can pick any ip address in the subnet
   security_groups = [aws_security_group.allow_web.id]
 
-  attachment {
-    instance     = aws_instance.test.id
-    device_index = 1
-  }
 }
 
 resource "aws_eip" "one" {
