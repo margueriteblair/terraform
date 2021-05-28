@@ -124,7 +124,20 @@ resource "aws_eip" "one" {
 resource "aws_instance" "web-server-instance" {
   ami = "ami-0b9064170e32bde34"
   instance_type = "t2.micro"
-  availability_zone = "us-east-2a"
+  availability_zone = "us-east-2a" #needs to be the same as the subnet
+  key_name = "main-key"
+
+  network_interface {
+    device_index = 0
+    network_interface_id = aws_network_interface.web-server-nic.id
+  }
+
+  user_data = <<-EOF
+            #!/bin/bash
+            sudo apt update -y
+            sudo apt install apache2 -y
+            sudo systemctl start apache2
+            sudo bash -c 'echo your very first web server > /var/www/html/index.html' 
 }
 
 #last step now is to actually create the ubuntu server
