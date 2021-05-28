@@ -10,6 +10,9 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-2"
+  access_key = "AKIA6NEN4OJOG6JQUVOH"
+  secret_key = "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"
+
 
 
 }
@@ -32,7 +35,7 @@ resource "aws_route_table" "prod-rt" {
 
   route {
     ipv6_cidr_block        = "::/0"
-    egress_only_gateway_id = aws_internet_gateway.gw.id
+    gateway_id = aws_internet_gateway.gw.id
   }
 
   tags = {
@@ -43,7 +46,7 @@ resource "aws_route_table" "prod-rt" {
 resource "aws_subnet" "subnet-1" {
   vpc_id = aws_vpc.prod-vpc.id
   cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-2"
+  availability_zone = "us-east-2a"
 
   tags = {
     Name = "prod-subnet"
