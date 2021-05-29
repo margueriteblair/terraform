@@ -144,4 +144,3 @@ resource "aws_instance" "web-server-instance" {
   }
 }
 
-#last step now is to actually create the ubuntu server
